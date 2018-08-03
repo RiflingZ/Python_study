@@ -189,3 +189,35 @@ if start_link == -1:
 `union(tocrawl,get_all_links(get_page()))`添加所有在正在爬取网页上找到的链接到`tocrawl`,这样可以避免在tocrawl中有重复的值
 
 `crawled.append(page)`之前定义过的`get_all_links`函数会返回包含有这个页面上所有链接的列表用`append`会把这些页面添加入已爬取页面的列表中取
+
+>2018年08月03日
+
+- 可变列表
+
+`p = p + [1]`的作用是新建一个列表,原列表保持不变
+
+- for循环的新应用
+
+```
+usa_univs = [ ['California Institute of Technology',2175,37704],
+              ['Harvard',19627,39849],
+              ['Massachusetts Institute of Technology',10566,40732],
+              ['Princeton',7802,37000],
+              ['Rice',5879,35551],
+              ['Stanford',19535,40569],
+              ['Yale',11701,40500]  ]
+
+
+def total_enrollment(p):
+    total_students = 0
+    total_tuition = 0
+    for name, students, tuition in p:
+        total_students = total_students + students
+        total_tuition = total_tuition + tuition * students
+    return total_students, total_tuition
+
+
+print(total_enrollment(usa_univs))
+```
+
+这里的新应用只是我觉得很新鲜的新,
