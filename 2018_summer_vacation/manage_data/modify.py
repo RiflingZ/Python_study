@@ -1,4 +1,4 @@
-p = ['H','e','l','l','o']
+p = ['H', 'e', 'l', 'l', 'o']
 print(p)
 p[0] = 'Y'
 print(p)

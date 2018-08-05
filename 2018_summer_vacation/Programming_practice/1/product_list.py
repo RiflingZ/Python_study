@@ -13,5 +13,5 @@ def product_list(list_of_numbers):
 
 
 print(product_list([9]))
-print(product_list([1,2,3,4]))
+print(product_list([1, 2, 3, 4]))
 print(product_list([]))

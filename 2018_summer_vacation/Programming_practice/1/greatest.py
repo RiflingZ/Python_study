@@ -16,4 +16,4 @@ def greatest(list_of_numbers):
 
 
 print(greatest([]))
-print(greatest([4,23,1]))
+print(greatest([4, 23, 1]))

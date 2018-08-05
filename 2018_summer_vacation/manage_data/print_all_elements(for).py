@@ -3,5 +3,5 @@ def print_all_elements(p):
         print(e)
 
 
-mylist = [1,2,[3,4]]
+mylist = [1, 2, [3, 4]]
 print_all_elements(mylist)

@@ -6,5 +6,5 @@ def measure_udacity(U):
     return count
 
 
-print(measure_udacity(['Dave','Sebastian','Katy']))
-print(measure_udacity(['Umika','Umberto']))
+print(measure_udacity(['Dave', 'Sebastian', 'Katy']))
+print(measure_udacity(['Umika', 'Umberto']))

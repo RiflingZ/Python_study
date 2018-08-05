@@ -64,7 +64,7 @@ def union(p,q):
 def get_all_links(page):
     links = []
     while True:
-        url,endpos = get_next_target(page)
+        url, endpos = get_next_target(page)
         if url:
             links.append(url)
             page = page[endpos:]
@@ -75,7 +75,7 @@ def get_all_links(page):
 
 def crawl_web(seed, max_page):
     tocrawl = [seed]
-    crawled = []  #len(crawled) is length of crawled
+    crawled = []  # len(crawled) is length of crawled
     while tocrawl:
         page = tocrawl.pop()
         if page not in crawled and len(crawled) < max_page:
@@ -84,6 +84,6 @@ def crawl_web(seed, max_page):
     return crawled
 
 
-print(crawl_web("http://www.udacity.com/cs101x/index.html",1))
-print(crawl_web("http://www.udacity.com/cs101x/index.html",3))
-print(crawl_web("http://www.udacity.com/cs101x/index.html",500))
+print(crawl_web("http://www.udacity.com/cs101x/index.html", 1))
+print(crawl_web("http://www.udacity.com/cs101x/index.html", 3))
+print(crawl_web("http://www.udacity.com/cs101x/index.html", 500))

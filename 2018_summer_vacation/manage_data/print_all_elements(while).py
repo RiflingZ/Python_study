@@ -1,6 +1,6 @@
 def print_all_elements(p):
     i = 0
-    while i<len(p):
+    while i < len(p):
         print(p[i])
         i = i + 1
 

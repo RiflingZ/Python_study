@@ -5,4 +5,4 @@ def sum_list(p):
     return result
 
 
-print(sum_list([1,2,3]))
+print(sum_list([1, 2, 3]))
