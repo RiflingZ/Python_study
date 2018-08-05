@@ -15,7 +15,7 @@ def symmetric(p):
         for n in range(len(p)):
             row.append(p[num][n])
             col.append(p[n][num])
-        print "round %s : %s, %s" % (num, row, col)
+        print("round %s : %s, %s" % (num, row, col))
         if row != col:
             return False
     return True
@@ -28,7 +28,6 @@ print(symmetric([[1, 2, 3],
 print(symmetric([["cat", "dog", "fish"],
                 ["dog", "dog", "fish"],
                 ["fish", "fish", "cat"]]))
-
 print(symmetric([["cat", "dog", "fish"],
                 ["dog", "dog", "dog"],
                 ["fish", "fish", "cat"]]))
