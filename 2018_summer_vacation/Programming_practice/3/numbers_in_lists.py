@@ -21,14 +21,14 @@ def numbers_in_lists(string):
     for i in range(1, len(string)):
         num = int(str(string[i]))
         if num > y:
-            if r1 != []:
+            if not r1:
                 r.append(r1)
             r.append(num)
             y = num
             r1 = []
         else:
             r1.append(num)
-    if r1 != []:
+    if not r1:
         r.append(r1)
     return r
     # YOUR CODE
