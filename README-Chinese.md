@@ -318,6 +318,8 @@ while i < n:
 解决方法是`if not r1`
 
 这个表达确实更简洁了
->2018年08月11日
+>2018年08月15
 
-外出旅游
+- 网络中响应和传输的路程
+
+Internet: message -> bits -> electrons/photons
