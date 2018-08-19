@@ -318,8 +318,36 @@ while i < n:
 解决方法是`if not r1`
 
 这个表达确实更简洁了
->2018年08月15
+>2018年08月15日
 
 - 网络中响应和传输的路程
 
 Internet: message -> bits -> electrons/photons
+
+在终端输入traceroute命令可追踪目标网址
+
+>2018年08月19日
+
+- 增加用户点击信息
+
+```
+def record_user_click(index, keyword, url):
+    urls = lookup(index, keyword)
+    if urls:
+        for entry in urls:
+            if entry[0] == url:
+                entry[1] = entry[1] + 1
+
+
+def add_to_index(index, keyword, url):  # format of index: [[keyword, [url,count], [url,count], ...]],...]
+    for entry in index:
+        if entry[0] == keyword:
+            for urls in entry[1]:
+                if urls[0] == url:
+                    return
+            entry[1].append([url, 0])
+            return
+    index.append([keyword, [[url, 0]]])
+```
+如果要在index中增加用户点击次数的信息,则必须把index的格式变成[[keyword, [url,count],[url,count], ...]],...]这样的
+然后再通过`record_user_click`函数检查index里面的url是否已经存在,如果存在,点击数加一
