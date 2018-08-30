@@ -351,3 +351,10 @@ def add_to_index(index, keyword, url):  # format of index: [[keyword, [url,count
 ```
 如果要在index中增加用户点击次数的信息,则必须把index的格式变成[[keyword, [url,count],[url,count], ...]],...]这样的
 然后再通过`record_user_click`函数检查index里面的url是否已经存在,如果存在,点击数加一
+>2018年08月30日
+
+- n次方
+
+`x**n` x是底数 n为幂
+
+- 留小数点的除法
