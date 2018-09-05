@@ -28,6 +28,6 @@ def add_page_to_index(index, url, content):
 
 
 add_page_to_index(index, 'fake.text', "This is a test")
-print index
+print(index)
 # >>> [['This', ['fake.text']], ['is', ['fake.text']], ['a', ['fake.text']],
 # >>> ['test',['fake.text']]]

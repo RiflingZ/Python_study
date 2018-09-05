@@ -1,0 +1,6 @@
+print(ord('a'))
+print(ord('A'))
+print(ord('B'))
+print(ord('b'))
+print(chr(ord('u')))
+print(chr(3))

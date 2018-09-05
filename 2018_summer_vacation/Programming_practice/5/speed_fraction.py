@@ -11,8 +11,8 @@ def speed_fraction(traceroute, distance):
     return speed / speed_of_light
 
 
-print speed_fraction(50, 5000)
+print(speed_fraction(50, 5000))
 # >>> 0.666666666667
 
-print speed_fraction(50, 10000)
+print(speed_fraction(50, 10000))
 # >>> 1.33333333333  # Any thoughts about this answer, or these inputs?

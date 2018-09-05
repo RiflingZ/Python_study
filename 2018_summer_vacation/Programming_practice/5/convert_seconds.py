@@ -34,11 +34,11 @@ def convert_seconds(time):
     return result
 
 
-print convert_seconds(3661)
+print(convert_seconds(3661))
 # >>> 1 hour, 1 minute, 1 second
 
-print convert_seconds(7325)
+print(convert_seconds(7325))
 # >>> 2 hours, 2 minutes, 5 seconds
 
-print convert_seconds(7261.7)
+print(convert_seconds(7261.7))
 # >>> 2 hours, 1 minute, 1.7 seconds
