@@ -358,3 +358,33 @@ def add_to_index(index, keyword, url):  # format of index: [[keyword, [url,count
 `x**n` x是底数 n为幂
 
 - 留小数点的除法
+>2018年09月24日
+
+- python中`*`的某些运用
+
+```
+def make_hashtable_NOT(nbuckets):
+    return [[]] * nbuckets
+
+table = make_hashtable_NOT(3)
+table[1].append(['1', ['https://www.baidu.com/']])
+print(table[1])
+print(table[0])
+```
+这串代码的输出结果是
+
+```
+[['1', ['https://www.baidu.com/']]]
+[['1', ['https://www.baidu.com/']]]
+```
+在此代码中table[1]和table[0]的内容是一样的,这显然不是我们所期待的
+
+这个的原因应该是该函数建立的列表中三个元素都是指向同一个内容的,所以改变其中一个就会改变所有,如果我们打印整个列表会发现每个元素都是一样的
+
+```
+def make_hashtable(nbuckets):
+    for e in range(0, nbuckets):
+        table.append([])
+    return table
+```
+所以这串代码应该是一个很好的解决方案
