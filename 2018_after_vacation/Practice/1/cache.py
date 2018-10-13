@@ -30,7 +30,7 @@ def factorial(n):
 cache = {}  # start cache as an empty dictionary
 # first execution (should print out Running factorial and the result)
 print(cached_execution(cache, factorial, 50))
-# cache ={'50': factorial[50]}
+## cache ={'50': factorial[50]}
 print(cache)
 
 print("Second time:")
@@ -43,15 +43,24 @@ print(cached_execution(cache, factorial, 50))
 # it will be clearer after Unit 6):
 
 def cached_fibo(n):
-    if n == 1 or n == 0:
+    if n in [0, 1]:
         return n
     else:
         return (cached_execution(cache, cached_fibo, n - 1)
                 + cached_execution(cache, cached_fibo, n - 2))
 
 
+def fibo(n):
+    if n in [0, 1]:
+        return n
+    return fibo(n - 1) + fibo(n - 2)
+
+
 cache = {}  # new cache for this procedure
 # do not try this at home...at least without a cache!
 print(cached_execution(cache, cached_fibo, 100))
-# cache = {'100': cached-fibo(100)}
-# cached-fibo(100) = 
+## cache = {'100': cached-fibo(100)}
+## cached-fibo(100) -> cache = {'100': cached-fibo(100), '99': cached-fibo(99),
+## '98': cached-fibo(98).....}
+# 记忆化
+print(cache)

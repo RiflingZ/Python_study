@@ -1,5 +1,4 @@
-#2018暑假Python学习记录<!--所有均在Python环境下适用-->
-
+#Python学习记录
 > 2018年07月28日
 
 - 嵌套列表
@@ -388,3 +387,63 @@ def make_hashtable(nbuckets):
     return table
 ```
 所以这串代码应该是一个很好的解决方案
+
+>2018年10月09日
+
+- Python的三种取整方式
+
+https://blog.csdn.net/sinat_32547403/article/details/53375061
+
+>2018年10月11日
+
+- 记忆化
+
+```
+cache = {}
+
+
+def cached_execution(cache, proc, proc_input):
+    if proc_input not in cache:
+        cache[proc_input] = proc(proc_input)
+    return cache[proc_input]
+    
+    
+def cached_fibo(n):
+    if n in [0, 1]:
+        return n
+    else:
+        return (cached_execution(cache, cached_fibo, n - 1)
+                + cached_execution(cache, cached_fibo, n - 2))
+
+
+print(cached_execution(cache, cached_fibo, 100))
+```
+首先,如果直接输出`cached_fibo(100)`,他会耗费很长很长时间,大概直接运行`cached_fibo(40)`需要两分钟才得出结果
+
+原因是如果不缓存的话，运算是指数上升的,fib(n)会占用2^n个栈空间用作递归,n给个100你存就炸了
+运行`print(cached_execution(cache, cached_fibo, 100))`后发现,100并不在cache内
+
+于是运行了`proc(proc_input)`,即`cached_fibo(100)`
+
+继续运行
+```(cached_execution(cache, cached_fibo, n - 1)
+                + cached_execution(cache, cached_fibo, n - 2))
+```
+
+这将会使`cached_execution()`这个函数不断的执行,但是与无cache不同的是每当函数的变量重复的时候,cache的字典里已经存在了那个数的斐波那契数,便不再执行`cache[proc_input] = proc(proc_input)`,所以执行时间不再像无cache那样长?
+
+比如说执行(cached_execution(cache, cached_fibo, 99)
+                + cached_execution(cache, cached_fibo, 98))
+的时候cache = {98:cached_fibo(98), 99: cached_fibo(99), 100:cached_fibo(100)}
+
+因为这样做的斐波那契数列是从最后往前的，在运行98:cached_fibo(98), 99: cached_fibo(99), 100:cached_fibo(100)的时候，不知道之前的数，还不是会重复吗
+
+还是说他在从运行的时候（比如fibo（98））时已经有了运行fibo（99）时的没有结果的fibo（97），直接用了那个没有结果的fibo（97）并且在cache里面创建了fibo（96），所以等于说从fibo（100）到fibo（1）都只过了一遍？
+
+如果这样认为的话，没有结果的fibo（97）为什么可以直接用呢
+
+###`f(3) = f(2) + f(1)`,这一步递归会遇到2个边界，得到`f(2) = 1 & f(1) = 1`
+
+n = N 的时候我们知道不需要算两次,n = N 的时候也知道不需要算两次,直接得出对于任意N我们都是算一次
+
+在运行的过程中cache中的内容创建是从大到小，然后冒号后面的内容待定，然后冒号后面的内容从小到大出现,比如100:x，99:x，……这样的顺序在cache里面出现,然后x从小到大补全.
